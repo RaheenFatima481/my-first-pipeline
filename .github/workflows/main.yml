@@ -1,14 +1,16 @@
-name: Delega un proyecto para principiantes. # The name of your automation
+name: Deploy to GitHub Pages
+
 on:
   push:
-    branches: [ "main" ]  # The trigger: "When someone pushes code to the 'main' branch..."
+    branches: [ "main" ]
+
 jobs:
-  build-and-deploy:  # The job to be done
-    runs-on: ubuntu-latest  # The type of computer the robot will use
+  deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Step 1: grab the code from the repository
+        uses: actions/checkout@v4
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4  # Step 2: use a popular action to deploy the code
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .  # Deploy everything from the root folder
+          folder: .
